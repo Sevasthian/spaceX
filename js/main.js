@@ -1,4 +1,4 @@
-import { getAllRockets , titleOfRockets} from "./modules/rockets.js";
+import { getAllRockets , titleOfRockets,getAllRocketEngineTotal,getAllRocketEngineThrustVacuumTotal} from "./modules/rockets.js";
 import { paginationRockets , load,paginationCapsules} from "./modulesComponents/pagination.js"
 
 
@@ -42,4 +42,8 @@ rocket.addEventListener("click", async(e)=>{
 })
 capsules.click();
 
+let res = await getAllRocketEngineTotal()
+let res2 = await getAllRocketEngineThrustVacuumTotal()
+console.log(res2);
 
+console.log(res);

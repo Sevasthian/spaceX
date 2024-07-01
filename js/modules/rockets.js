@@ -524,81 +524,139 @@ export const informationFirstFlightRocket = async(first_flight)=>{
     //     </div>
     // </div>
 }
-export const informRocketEngineThrustSeaLevel = async(thrust_sea_level)=>{
-    let {kN:totalKN} = await getAllRocketEngineTotal();
-    let pocentaje = (thrust_sea_level.kN * 100) / totalKN
+export const informRocketEngineThrustSeaLevel = async(rocket) => {
+    try {
+        let result = await getAllRocketEngineTotal();
+        
+        // Depuración: imprime el resultado de getAllRocketEngineTotal
+        console.log('Resultado de getAllRocketEngineTotal:', result);
 
-    let div = document.createElement('div');
-    div.classList.add("carousel__item")
-    let divFirst = document.createElement('div');
-    divFirst.classList.add("item__progress__bar");
-    divFirst.style = `background: radial-gradient(closest-side, #1d1f38 85%, transparent 85% 100%), conic-gradient(var(--color--three) ${pocentaje}%, transparent 0)`
-    let divFirstChildren = document.createElement('div');
-    divFirstChildren.classList.add("progress__value")
-    let strong = document.createElement('strong');
-    strong.textContent = "Atmospheric acceleration"
-    let smallFirst = document.createElement('small');
-    smallFirst.textContent = `${pocentaje.toFixed(2)} %`
-    
-    let smallLast = document.createElement('small');
-    let kN = new Intl.NumberFormat('cop').format(thrust_sea_level.kN)
-    let lbf = new Intl.NumberFormat('cop').format(thrust_sea_level.lbf)
-    smallLast.innerHTML = `${kN} kN <br> ${lbf} Lbf`
+        // Asegúrate de que `result` contiene la propiedad `kN` y que es un número
+        if (!result || typeof result.kN !== 'number') {
+            console.error('getAllRocketEngineTotal no retornó un valor válido');
+            return;
+        }
+        
+        let { kN: totalKN } = result;
+        console.log('Total KN:', totalKN);
+        
+        // Depuración: imprime el objeto rocket
+        console.log('rocket:', rocket);
 
-    divFirstChildren.append(strong, smallFirst, smallLast)
-    divFirst.append(divFirstChildren)
-    div.append(divFirst)
-    let section__information__1 = document.querySelector("#section__information__1");
-    section__information__1.innerHTML = "";
-    section__information__1.append(div)
+        // Asegúrate de que `rocket.engines.thrust_sea_level.kN` es un número
+        if (!rocket.engines.thrust_sea_level || typeof rocket.engines.thrust_sea_level.kN !== 'number') {
+            console.error('rocket.engines.thrust_sea_level.kN no es un número válido:', rocket.engines.thrust_sea_level.kN);
+            return;
+        }
 
-    // <div class="carousel__item">
-    //     <div class="item__progress__bar">
-    //         <div class="progress__value">
-    //             <strong>Title</strong>
-    //             <small>3</small>
-    //         </div>
-    //     </div>
-    // </div>
-}
+        let thrust_sea_level_kN = rocket.engines.thrust_sea_level.kN;
+        let porcentaje = (thrust_sea_level_kN * 100) / totalKN;
+        console.log('Porcentaje calculado:', porcentaje);
+
+        let div = document.createElement('div');
+        div.classList.add("carousel__item");
+
+        let divFirst = document.createElement('div');
+        divFirst.classList.add("item__progress__bar");
+        divFirst.style.cssText = `background: radial-gradient(closest-side, #1d1f38 85%, transparent 85% 100%), conic-gradient(var(--color-three) ${porcentaje}%, transparent 0)`;
+
+        let divFirstChildren = document.createElement('div');
+        divFirstChildren.classList.add("progress__value");
+
+        let strong = document.createElement('strong');
+        strong.textContent = "Atmospheric acceleration";
+
+        let smallFirst = document.createElement('small');
+        smallFirst.textContent = `${porcentaje.toFixed(2)} %`;
+
+        let smallLast = document.createElement('small');
+        let kN = new Intl.NumberFormat('en-US').format(thrust_sea_level_kN);
+        let lbf = new Intl.NumberFormat('en-US').format(rocket.engines.thrust_sea_level.lbf);
+        smallLast.innerHTML = `${kN} kN <br> ${lbf} lbf`;
+
+        divFirstChildren.append(strong, smallFirst, smallLast);
+        divFirst.append(divFirstChildren);
+        div.append(divFirst);
+
+        let section__information__1 = document.querySelector("#section__information__1");
+        if (section__information__1) {
+            section__information__1.innerHTML = "";
+            section__information__1.append(div);
+        } else {
+            console.error("El elemento #section__information__1 no se encuentra en el DOM");
+        }
+    } catch (error) {
+        console.error('Error al obtener el empuje del motor cohete al nivel del mar:', error);
+    }
+};
 
 
-export const informRocketEngineThrustVacuum = async(thrust_vacuum)=>{
-    let {kN:totalKN} = await getAllRocketEngineThrustVacuumTotal();
-    let pocentaje = (thrust_vacuum.kN * 100) / totalKN;
+export const informRocketEngineThrustVacuum = async(rocket) => {
+    try {
+        let result = await getAllRocketEngineThrustVacuumTotal();
+        
+        // Depuración: imprime el resultado de getAllRocketEngineThrustVacuumTotal
+        console.log('Resultado de getAllRocketEngineThrustVacuumTotal:', result);
 
-    let div = document.createElement('div');
-    div.classList.add("carousel__item")
-    let divFirst = document.createElement('div');
-    divFirst.classList.add("item__progress__bar");
-    divFirst.style = `background: radial-gradient(closest-side, #1d1f38 85%, transparent 85% 100%), conic-gradient(var(--color--three) ${pocentaje}%, transparent 0)`
-    let divFirstChildren = document.createElement('div');
-    divFirstChildren.classList.add("progress__value")
-    let strong = document.createElement('strong');
-    strong.textContent = "Speed in space"
-    let smallFirst = document.createElement('small');
-    smallFirst.textContent = `${pocentaje.toFixed(2)} %`
-    
-    let smallLast = document.createElement('small');
-    let kN = new Intl.NumberFormat('cop').format(thrust_vacuum.kN)
-    let lbf = new Intl.NumberFormat('cop').format(thrust_vacuum.lbf)
-    smallLast.innerHTML = `${kN} kN <br> ${lbf} Lbf`
+        // Asegúrate de que `result` contiene la propiedad `kN` y que es un número
+        if (!result || typeof result.kN !== 'number') {
+            console.error('getAllRocketEngineThrustVacuumTotal no retornó un valor válido');
+            return;
+        }
+        
+        let { kN: totalKN } = result;
+        console.log('Total KN:', totalKN);
+        
+        // Depuración: imprime el objeto rocket
+        console.log('rocket:', rocket);
 
-    divFirstChildren.append(strong, smallFirst, smallLast)
-    divFirst.append(divFirstChildren)
-    div.append(divFirst)
-    let section__information__1 = document.querySelector("#section__information__1");
-    section__information__1.append(div)
+        // Asegúrate de que `rocket.engines.thrust_vacuum.kN` es un número
+        if (!rocket.engines.thrust_vacuum || typeof rocket.engines.thrust_vacuum.kN !== 'number') {
+            console.error('rocket.engines.thrust_vacuum.kN no es un número válido:', rocket.engines.thrust_vacuum.kN);
+            return;
+        }
 
-    // <div class="carousel__item">
-    //     <div class="item__progress__bar">
-    //         <div class="progress__value">
-    //             <strong>Title</strong>
-    //             <small>3</small>
-    //         </div>
-    //     </div>
-    // </div>
-}
+        let thrust_vacuum_kN = rocket.engines.thrust_vacuum.kN;
+        let porcentaje = (thrust_vacuum_kN * 100) / totalKN;
+        console.log('Porcentaje calculado:', porcentaje);
+
+        let div = document.createElement('div');
+        div.classList.add("carousel__item");
+
+        let divFirst = document.createElement('div');
+        divFirst.classList.add("item__progress__bar");
+        divFirst.style.cssText = `background: radial-gradient(closest-side, #1d1f38 85%, transparent 85% 100%), conic-gradient(var(--color-three) ${porcentaje}%, transparent 0)`;
+
+        let divFirstChildren = document.createElement('div');
+        divFirstChildren.classList.add("progress__value");
+
+        let strong = document.createElement('strong');
+        strong.textContent = "Speed in space";
+
+        let smallFirst = document.createElement('small');
+        smallFirst.textContent = `${porcentaje.toFixed(2)} %`;
+
+        let smallLast = document.createElement('small');
+        let kN = new Intl.NumberFormat('en-US').format(thrust_vacuum_kN);
+        let lbf = new Intl.NumberFormat('en-US').format(rocket.engines.thrust_vacuum.lbf);
+        smallLast.innerHTML = `${kN} kN <br> ${lbf} lbf`;
+
+        divFirstChildren.append(strong, smallFirst, smallLast);
+        divFirst.append(divFirstChildren);
+        div.append(divFirst);
+
+        let section__information__1 = document.querySelector("#section__information__1");
+        if (section__information__1) {
+            section__information__1.append(div);
+        } else {
+            console.error("El elemento #section__information__1 no se encuentra en el DOM");
+        }
+    } catch (error) {
+        console.error('Error al obtener el empuje del motor cohete en vacío:', error);
+    }
+};
+
+
 
 
 export const progressRocketWeight = async(Rockets)=>{
