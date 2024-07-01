@@ -1,0 +1,17 @@
+:root{
+    --color--one: #343549;
+    --color--one--rgba: #404790;
+    --color--two: #cacaf0;
+    --color--three: #69AEFF;
+    --color--four: #e52d2d;
+    --color--five: #eeebeb63;
+    --color--six: #ffd733;
+
+    --layout-description-container-x: 10px;
+    --layout-description-container-y: 10px;
+}
+/* 
+@font-face {
+    font-family: "Roboto-Regular";
+    src: url(../storage/font/Roboto/Roboto-Regular.ttf);
+} */
