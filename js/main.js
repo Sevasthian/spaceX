@@ -10,36 +10,37 @@ import { paginationRockets , load,paginationCapsules} from "./modulesComponents/
 //     console.log(rocket.cost_per_launch);  // Ejemplo de acceso al costo por lanzamiento
 // });
 
-//console.log(titleOfRockets(1));
-let footerSelect = async(e, id)=>{
+// Función para seleccionar el elemento de pie de página
+let footerSelect = async(e, id) => {
     e.preventDefault();
     await load();
-    let li = document.querySelectorAll(".footer ul li")
-    for(let val of li){
-        let [a] = val.children
+    let li = document.querySelectorAll(".footer ul li");
+    for (let val of li) {
+        let [a] = val.children;
         a.classList.remove('select');
     }
-    let [a] = id.children
-    a.classList.add('select');   
+    let [a] = id.children;
+    a.classList.add('select');
 }
 
-
-let rocket = document.querySelector("#rocket")
-rocket.addEventListener("click", async(e)=>{
-    await footerSelect(e, rocket)
+// Añadir evento de click al elemento con id 'rocket'
+let rocket = document.querySelector("#rocket");
+rocket.addEventListener("click", async(e) => {
+    await footerSelect(e, rocket);
     let paginacion = document.querySelector("#paginacion");
-    paginacion.innerHTML = ""
-    paginacion.append(await paginationRockets())
-} )
+    paginacion.innerHTML = "";
+    paginacion.append(await paginationRockets());
+});
 rocket.click();
 
-let capsules = document.querySelector("#capsules")
-rocket.addEventListener("click", async(e)=>{
-    await footerSelect(e,rocket)
+// Añadir evento de click al elemento con id 'capsules'
+let capsules = document.querySelector("#capsules");
+capsules.addEventListener("click", async(e) => {
+    await footerSelect(e, capsules);
     let paginacion = document.querySelector("#paginacion");
-    paginacion.innerHTML = ""
-    paginacion.append(await paginationCapsules())
-})
+    paginacion.innerHTML = "";
+    paginacion.append(await paginationCapsules());
+});
 capsules.click();
 
 let res = await getAllRocketEngineTotal()
