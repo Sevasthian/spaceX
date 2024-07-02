@@ -20,7 +20,8 @@ import { getAllRockets,
 import{
     getAllCapsulesId,
     serialCapsules,
-    getAllCapsules
+    getAllCapsules,
+    tableCapsules
 } from "../modules/capsules.js";
 
 export const paginationRockets = async(page=1, limit=4)=>{  
@@ -252,5 +253,6 @@ const getCapsulesId = async(e)=>{
     await clear();
 
     await serialCapsules(Capsules.serial)
+    await tableCapsules(Capsules)
 
 }
