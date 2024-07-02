@@ -409,7 +409,7 @@ export const informationWebRocket = async(wikipedia)=>{
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/mech.svg")
+    img.setAttribute("src", "storage/icos.svg")
     divFirst.append(img);
     
     let divLast = document.createElement('div');
@@ -440,7 +440,7 @@ export const informationRockets = async(country, description)=>{
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/mech.svg")
+    img.setAttribute("src", "storage/icos.svg")
     divFirst.append(img);
     
     let divLast = document.createElement('div');
@@ -470,7 +470,7 @@ export const informationLaunchCostRocket = async(cost_per_launch)=>{
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/mech.svg")
+    img.setAttribute("src", "storage/icos.svg")
     divFirst.append(img);
     
     let divLast = document.createElement('div');
@@ -500,7 +500,7 @@ export const informationFirstFlightRocket = async(first_flight)=>{
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/mech.svg")
+    img.setAttribute("src", "storage/icos.svg")
     divFirst.append(img);
     
     let divLast = document.createElement('div');

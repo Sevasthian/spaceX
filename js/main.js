@@ -26,6 +26,8 @@ let footerSelect = async(e, id) => {
 // Añadir evento de click al elemento con id 'rocket'
 let rocket = document.querySelector("#rocket");
 rocket.addEventListener("click", async(e) => {
+    console.log(e);
+    
     await footerSelect(e, rocket);
     let paginacion = document.querySelector("#paginacion");
     paginacion.innerHTML = "";

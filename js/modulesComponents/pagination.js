@@ -17,6 +17,10 @@ import { getAllRockets,
     progressSecondStageDiameterRocket,
     progressSecondStageHeightRocket } from "../modules/rockets.js";
 
+import{
+    getAllCapsulesId
+} from "../modules/capsules.js";
+
 export const paginationRockets = async(page=1, limit=4)=>{  
      
     let {docs, pagingCounter, totalPages, nextPage} = await getAllRockets(page, limit)
@@ -72,14 +76,14 @@ export const paginationCapsules = async(page=1, limit=4)=>{
     start.setAttribute("href","#");
     start.innerHTML = "&laquo";
     start.setAttribute("data-page", (page==1) ? totalPages : page-1)
-    start.addEventListener("click", getRocketsId)
+    start.addEventListener("click", getCapsulesId)
     div.appendChild(start);
     docs.forEach((val,id) => {
         let a = document.createElement("a");
         a.setAttribute("href","#");
         a.id = val.id;
         a.textContent = pagingCounter;
-        a.addEventListener("click", getRocketsId)
+        a.addEventListener("click", getCapsulesId)
         div.appendChild(a);
         pagingCounter++
     });
@@ -87,7 +91,7 @@ export const paginationCapsules = async(page=1, limit=4)=>{
     end.setAttribute("href","#");
     end.innerHTML = "&raquo;";
     end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
-    end.addEventListener("click", getRocketsId)
+    end.addEventListener("click", getCapsulesId)
     div.appendChild(end);
     console.log(div);
     let [back, a1,a2,a3,a4, next] = div.children
@@ -178,7 +182,6 @@ const getRocketsId = async(e)=>{
     console.log(Rocket.flickr_images)
     await tableRocketColum1(Rocket)
     await tableRocketColum2(Rocket)
-    await informationWebRocket(Rocket.wikipedia)
 
     await informationRockets(Rocket.country, Rocket.description)
     await informationLaunchCostRocket(Rocket.cost_per_launch)
@@ -223,3 +226,27 @@ export const clear = async()=>{
 
 }
 
+
+const getCapsulesId = async(e)=>{
+    e.preventDefault();
+    console.log(e.target.id);
+    
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationCapsules(Number(e.target.dataset.page)))
+        console.log(paginacion);
+        
+    }
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+
+    let capsules = await getAllCapsulesId(e.target.id);
+    console.log(capsules);
+    await clear();
+
+}

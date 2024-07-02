@@ -101,6 +101,9 @@ body {
     color: var(--color--two);
     text-decoration: none;
 }
+.description__container img{
+    width: 30px;
+}
 
 .main__section {
     /* background: green; */
