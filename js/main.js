@@ -43,8 +43,115 @@ capsules.addEventListener("click", async(e) => {
 });
 capsules.click();
 
-let res = await getAllRocketEngineTotal()
-let res2 = await getAllRocketEngineThrustVacuumTotal()
-console.log(res2);
+let company = document.querySelector("#company");
+company.addEventListener("click", async(e) => {
+    await footerSelect(e, company);
+    let paginacion = document.querySelector("#paginacion");
+    paginacion.innerHTML = "";
+    paginacion.append(await paginationCapsules());
+});
+company.click();
 
-console.log(res);
+
+let history = document.querySelector("#history");
+history.addEventListener("click", async(e) => {
+    await footerSelect(e, history);
+    let paginacion = document.querySelector("#paginacion");
+    paginacion.innerHTML = "";
+    paginacion.append(await paginationCapsules());
+});
+history.click();
+
+let cores = document.querySelector("#cores");
+cores.addEventListener("click", async(e) => {
+    await footerSelect(e, cores);
+    let paginacion = document.querySelector("#paginacion");
+    paginacion.innerHTML = "";
+    paginacion.append(await paginationCapsules());
+});
+cores.click();
+
+let dragons = document.querySelector("#dragons");
+dragons.addEventListener("click", async(e) => {
+    await footerSelect(e, dragons);
+    let paginacion = document.querySelector("#paginacion");
+    paginacion.innerHTML = "";
+    paginacion.append(await paginationCapsules());
+});
+dragons.click();
+
+let landing = document.querySelector("#landing");
+landing.addEventListener("click", async(e) => {
+    await footerSelect(e, landing);
+    let paginacion = document.querySelector("#paginacion");
+    paginacion.innerHTML = "";
+    paginacion.append(await paginationCapsules());
+});
+landing.click();
+
+let launchpads = document.querySelector("#launchpads");
+launchpads.addEventListener("click", async(e) => {
+    await footerSelect(e, launchpads);
+    let paginacion = document.querySelector("#paginacion");
+    paginacion.innerHTML = "";
+    paginacion.append(await paginationCapsules());
+});
+launchpads.click();
+
+let payloads = document.querySelector("#payloads");
+payloads.addEventListener("click", async(e) => {
+    await footerSelect(e, payloads);
+    let paginacion = document.querySelector("#paginacion");
+    paginacion.innerHTML = "";
+    paginacion.append(await paginationCapsules());
+});
+payloads.click();
+
+let roadster = document.querySelector("#roadster");
+roadster.addEventListener("click", async(e) => {
+    await footerSelect(e, roadster);
+    let paginacion = document.querySelector("#paginacion");
+    paginacion.innerHTML = "";
+    paginacion.append(await paginationCapsules());
+});
+roadster.click();
+
+let ships = document.querySelector("#ships");
+ships.addEventListener("click", async(e) => {
+    await footerSelect(e, ships);
+    let paginacion = document.querySelector("#paginacion");
+    paginacion.innerHTML = "";
+    paginacion.append(await paginationCapsules());
+});
+ships.click();
+
+let starlink = document.querySelector("#starlink");
+starlink.addEventListener("click", async(e) => {
+    await footerSelect(e, starlink);
+    let paginacion = document.querySelector("#paginacion");
+    paginacion.innerHTML = "";
+    paginacion.append(await paginationCapsules());
+});
+starlink.click();
+
+let crew = document.querySelector("#crew");
+crew.addEventListener("click", async(e) => {
+    await footerSelect(e, crew);
+    let paginacion = document.querySelector("#paginacion");
+    paginacion.innerHTML = "";
+    paginacion.append(await paginationCapsules());
+});
+crew.click();
+
+let launches = document.querySelector("#launches");
+launches.addEventListener("click", async(e) => {
+    await footerSelect(e, launches);
+    let paginacion = document.querySelector("#paginacion");
+    paginacion.innerHTML = "";
+    paginacion.append(await paginationCapsules());
+});
+launches
+.click();
+
+
+

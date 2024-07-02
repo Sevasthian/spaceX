@@ -336,7 +336,8 @@ body {
     /* background: coral; */
     grid-area: section__footer;
     display: grid;
-    grid-template-columns: 1fr 50fr 1fr;
+    grid-template-columns: 1fr 8fr 1fr;
+
     grid-template-areas: ". footer__menu .";
 }
 
@@ -347,6 +348,7 @@ body {
     justify-content: space-between;
     align-items: center;
     border-top-left-radius: 40px;
+    gap: 15px;
     border-top-right-radius: 40px;
 }
 .footer ul::after{
