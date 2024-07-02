@@ -18,7 +18,9 @@ import { getAllRockets,
     progressSecondStageHeightRocket } from "../modules/rockets.js";
 
 import{
-    getAllCapsulesId
+    getAllCapsulesId,
+    serialCapsules,
+    getAllCapsules
 } from "../modules/capsules.js";
 
 export const paginationRockets = async(page=1, limit=4)=>{  
@@ -66,7 +68,7 @@ export const paginationRockets = async(page=1, limit=4)=>{
 
 export const paginationCapsules = async(page=1, limit=4)=>{  
      
-    let {docs, pagingCounter, totalPages, nextPage} = await getAllRockets(page, limit)
+    let {docs, pagingCounter, totalPages, nextPage} = await getAllCapsules(page, limit)
 
     let div = document.createElement("div");
     div.classList.add("buttom__paginacion")
@@ -245,8 +247,10 @@ const getCapsulesId = async(e)=>{
     e.target.classList.add('activo');
     
 
-    let capsules = await getAllCapsulesId(e.target.id);
-    console.log(capsules);
+    let Capsules = await getAllCapsulesId(e.target.id);
+    console.log(Capsules);
     await clear();
+
+    await serialCapsules(Capsules.serial)
 
 }
