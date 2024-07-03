@@ -1,5 +1,5 @@
-import { getAllRockets , titleOfRockets,getAllRocketEngineTotal,getAllRocketEngineThrustVacuumTotal} from "./modules/rockets.js";
-import { paginationRockets , load,paginationCapsules} from "./modulesComponents/pagination.js"
+
+import { paginationRockets , load,paginationCapsules,paginationHistory} from "./modulesComponents/pagination.js"
 
 
 
@@ -60,7 +60,7 @@ history.addEventListener("click", async(e) => {
     await footerSelect(e, history);
     let paginacion = document.querySelector("#paginacion");
     paginacion.innerHTML = "";
-    paginacion.append(await paginationCapsules());
+    paginacion.append(await paginationHistory());
 });
 history.click();
 

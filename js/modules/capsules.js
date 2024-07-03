@@ -38,7 +38,7 @@ export const getAllCapsules = async (page , limit)=>{
 
 export const tableCapsules = async (Capsules)=>{
 
-    let information__table__1 = document.querySelector("#information__table__1");
+    let information__table__1 = document.querySelector("#section__information__1");
     information__table__1.innerHTML = "";
     // let h3 = document.createElement("h3");
     // h3.textContent = "Reuse Count"

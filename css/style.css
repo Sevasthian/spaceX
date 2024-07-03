@@ -491,3 +491,72 @@ progress[value]::-moz-progress-bar {
     border-radius: 10em;
     background: var(--color);
 }
+
+
+
+
+.table__company_1 {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+    width: 300px; /* Adjust as per your design */
+}
+
+.table__company_1 div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.table__company_1 span {
+    font-weight: bold;
+}
+
+.table__company_1 hr {
+    margin: 10px 0;
+    border: none;
+    border-top: 1px solid #ccc;
+}
+
+
+
+/* CSS mejorado para la tabla de historial */
+.table__history {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(120deg, #ffffff0e 30%, #ffffff23 38%, #f0f0f032 40%, #e5e5e50c 40%);;
+}
+
+.table__history div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.table__history span {
+    font-weight: bold;
+    color: var(--color--two);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.table__history strong {
+    color: var( --color--three);
+    font-size: 14px;
+}
+
+.table__history hr {
+    margin: 15px 0;
+    border: none;
+    border-top: 1px solid #ddd;
+}
