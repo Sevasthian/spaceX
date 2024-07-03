@@ -560,3 +560,7 @@ progress[value]::-moz-progress-bar {
     border: none;
     border-top: 1px solid #ddd;
 }
+
+.table__history a {
+    color: var(--color--three);
+}
