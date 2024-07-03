@@ -1,5 +1,9 @@
 
-import { paginationRockets , load,paginationCapsules,paginationHistory} from "./modulesComponents/pagination.js"
+import { paginationRockets ,
+    load,
+    paginationCapsules,
+    paginationHistory,
+    paginationCores} from "./modulesComponents/pagination.js"
 
 
 
@@ -69,7 +73,7 @@ cores.addEventListener("click", async(e) => {
     await footerSelect(e, cores);
     let paginacion = document.querySelector("#paginacion");
     paginacion.innerHTML = "";
-    paginacion.append(await paginationCapsules());
+    paginacion.append(await paginationCores());
 });
 cores.click();
 
