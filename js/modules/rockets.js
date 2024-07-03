@@ -252,7 +252,7 @@ export const images = async(flickr_images)=>{
         div.classList.add("carousel__item")
         let img = document.createElement("img");
         img.setAttribute("src", val)
-        img.setAttribute("referrenrpolicy", "no-referrer")
+        img.setAttribute("referrerpolicy", "no-referrer")
         div.append(img)
         divs.push(div);
     });
