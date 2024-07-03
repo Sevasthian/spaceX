@@ -223,3 +223,36 @@ export const tableDragons6 = async (Dragons) => {
     div.append(div1, div2);
     information__table__6 .append(div);
 };
+
+let imageDragons= document.querySelector("#section__image")
+imageDragons.innerHTML = /*html*/`
+<style>
+
+#section__image {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--color--five);
+}
+
+#image__dragon__bx{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+}
+
+#image__dragon__bx img{
+
+    width: 60%;
+    overflow: hidden;
+}
+
+</style>
+
+<div id="image__dragon__bx">
+    <img style="width: auto; height: 300px;" src="${Dragons.flickr_images }" referrerpolicy = "no-referrer" alt="">
+</div>`
+}
