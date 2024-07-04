@@ -1,136 +1,55 @@
-import { getAllRockets,
-    titleRockets,
-    getAllRocketsId,
-    images,
-    tableRocketColum2,
-    tableRocketColum1,
-    informationWebRocket,
-    informationRockets,
-    informationLaunchCostRocket,
-    informationFirstFlightRocket,
-    informRocketEngineThrustSeaLevel,
+import { 
+    getAllRockets, 
+    getAllRocketsId
+} from "../modules/rockets.js";
+import { 
+    nameRockets 
+} from "./title.js";
+import { 
+    getAllRocketInformation
+} from "./rocketInformation.js";
+import { 
+    tableRocketColum1, 
+    tableRocketColum2
+} from "./tables.js";
+import { 
+    informRocketEngineThrustSeaLevel, 
     informRocketEngineThrustVacuum,
+    countryOfEachRocket,
+    sucessRateRocket
+
+} from "./inform.js";
+import { 
+    imageRockets 
+} from "./card.js";
+import { 
     progressRocketWeight,
-    progressPayloadWeights,
-    progressHeightRocket,
-    progressDiameterRocket , 
+    progressPayloadWeights, 
+    progressHeightRocket, 
+    progressDiameterRocket,
     progressSecondStageDiameterRocket,
-    progressSecondStageHeightRocket } from "../modules/rockets.js";
-
-import{
-    getAllCapsulesId,
-    serialCapsules,
+    progressSecondStageHeightRocket,
+} from "../modulesComponents/progressBar.js";
+///
+import { 
     getAllCapsules,
-    tableCapsules
+    getAllCapsulesId,
+    informationCapsule,
+    // getAllReuseCount
+
 } from "../modules/capsules.js";
-
-import{
-    tableHistory,
-    getAllHistoryId,
-    getAllHistory
-} from "../modules/history.js"
-
-import{
-    getAllCompanyId,
-    tableCompany1,
-    getAllCompany
-} from "../modules/company.js"
-
-
-import{
-    tableCores,
-    getAllCores,
-    getAllCoresId
-}from "../modules/cores.js"
-
-
-
-export const paginationRockets = async(page=1, limit=4)=>{  
-     
-    let {docs, pagingCounter, totalPages, nextPage} = await getAllRockets(page, limit)
-
-    let div = document.createElement("div");
-    div.classList.add("buttom__paginacion")
-
-    
-    let start = document.createElement("a");
-    start.setAttribute("href","#");
-    start.innerHTML = "&laquo";
-    start.setAttribute("data-page", (page==1) ? totalPages : page-1)
-    start.addEventListener("click", getRocketsId)
-    div.appendChild(start);
-    docs.forEach((val,id) => {
-        let a = document.createElement("a");
-        a.setAttribute("href","#");
-        a.id = val.id;
-        a.textContent = pagingCounter;
-        a.addEventListener("click", getRocketsId)
-        div.appendChild(a);
-        pagingCounter++
-    });
-    let end = document.createElement("a");
-    end.setAttribute("href","#");
-    end.innerHTML = "&raquo;";
-    end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
-    end.addEventListener("click", getRocketsId)
-    div.appendChild(end);
-    console.log(div);
-    let [back, a1,a2,a3,a4, next] = div.children
-    a1.click();
-    // <div class="buttom__paginacion">
-    //     <a href="#">&laquo;</a> 
-    //     <a href="#" class="activo">1</a>
-    //     <a href="#">2</a>
-    //     <a href="#">3</a>
-    //     <a href="#">4</a>
-    //     <a href="#">&raquo;</a>
-    // </div>
-    return div;
-}
-
-export const paginationCapsules = async(page=1, limit=4)=>{  
-     
-    let {docs, pagingCounter, totalPages, nextPage} = await getAllCapsules(page, limit)
-
-    let div = document.createElement("div");
-    div.classList.add("buttom__paginacion")
-
-    
-    let start = document.createElement("a");
-    start.setAttribute("href","#");
-    start.innerHTML = "&laquo";
-    start.setAttribute("data-page", (page==1) ? totalPages : page-1)
-    start.addEventListener("click", getCapsulesId)
-    div.appendChild(start);
-    docs.forEach((val,id) => {
-        let a = document.createElement("a");
-        a.setAttribute("href","#");
-        a.id = val.id;
-        a.textContent = pagingCounter;
-        a.addEventListener("click", getCapsulesId)
-        div.appendChild(a);
-        pagingCounter++
-    });
-    let end = document.createElement("a");
-    end.setAttribute("href","#");
-    end.innerHTML = "&raquo;";
-    end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
-    end.addEventListener("click", getCapsulesId)
-    div.appendChild(end);
-    console.log(div);
-    let [back, a1,a2,a3,a4, next] = div.children
-    a1.click();
-    // <div class="buttom__paginacion">
-    //     <a href="#">&laquo;</a> 
-    //     <a href="#" class="activo">1</a>
-    //     <a href="#">2</a>
-    //     <a href="#">3</a>
-    //     <a href="#">4</a>
-    //     <a href="#">&raquo;</a>
-    // </div>
-    return div;
-}
-
+import { getAllCrew, getAllCrewId, informationCrew } from "../modules/crew.js";
+import { getAllLaunches, getAllLaunchesId, informationLaunches } from "../modules/launches.js";
+import { getAllCores, getAllCoresId, informationCores } from "../modules/cores.js";
+import { getAllLandpads, getAllLandpadsId, informationLandpads } from "../modules/landpads.js";
+import { getAllShips, getAllShipsId, informationShips } from "../modules/ships.js";
+import { getCompany, informationCompany } from "../modules/company.js";
+import { getAllDragons, getAllDragonsId, informationDragons } from "../modules/dragons.js";
+import { getAllHistory, getAllHistoryId, informationHistory } from "../modules/history.js";
+import { getAllLaunchPads, getAllLaunchPadsId, informationLaunchPads } from "../modules/launchpads.js";
+import { getAllPayloads, getAllPayloadsId, informationPayloads } from "../modules/payloads.js";
+import { getRoadster, informationRoadster } from "../modules/roadster.js";
+import { getAllStarlink, getAllStarlinkId, informationStarlink } from "../modules/starlink.js";
 
 
 export const load = async()=>{
@@ -178,55 +97,6 @@ export const load = async()=>{
         <div class="load"></div>
     `;
 }
-const getRocketsId = async(e)=>{
-    e.preventDefault();
-    console.log(e.target.id);
-    
-    if(e.target.dataset.page){
-        let paginacion = document.querySelector("#paginacion");
-        paginacion.innerHTML = ""
-        paginacion.append(await paginationRockets(Number(e.target.dataset.page)))
-        console.log(paginacion);
-        
-    }
-    let a = e.target.parentElement.children;
-    for(let val of a){
-        val.classList.remove('activo');
-    }
-    e.target.classList.add('activo');
-    
-
-    let Rocket = await getAllRocketsId(e.target.id);
-    console.log(Rocket);
-    await clear();
-
-    await titleRockets(Rocket.name)
-    console.log(Rocket.name);
-    await images(Rocket.flickr_images)
-    console.log(Rocket.flickr_images)
-    await tableRocketColum1(Rocket)
-    await tableRocketColum2(Rocket)
-
-    await informationRockets(Rocket.country, Rocket.description)
-    await informationLaunchCostRocket(Rocket.cost_per_launch)
-    await informationFirstFlightRocket(Rocket.first_flight)
-    await informationWebRocket(Rocket.wikipedia)
-
-    await informRocketEngineThrustSeaLevel(Rocket)
-    await informRocketEngineThrustVacuum(Rocket)
-    
-    await progressRocketWeight(Rocket)
-    await progressPayloadWeights(Rocket)
-
-    await progressHeightRocket(Rocket)
-    await progressDiameterRocket(Rocket)
-    await progressSecondStageDiameterRocket(Rocket)
-    await progressSecondStageHeightRocket(Rocket)
-    // await informationRockets(Rocket.country, Rocket.description)
-    
-}
-
-
 export const clear = async()=>{
     let header__title = document.querySelector("#header__title");
     header__title.innerHTML = ``;
@@ -250,19 +120,87 @@ export const clear = async()=>{
     let information__2 = document.querySelector("#information__2")
     information__2.innerHTML = ``;
 
+    let div_country = document.querySelector("#country_rocket")
+    div_country.innerHTML = ``;
+
+    let div_sucess_rate = document.querySelector("#sucess_rate_rocket")
+    div_sucess_rate.innerHTML = ``;
+
 }
 
+const getRocketsId = async(e)=>{
+    e.preventDefault();
+    // console.log(e.target);
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+    let Rocket = await getAllRocketsId(e.target.id);
+    await clear();
+    
+    description__item.append(...getAllRocketInformation(Rocket))
+    await nameRockets(Rocket.name)
+
+    await countryOfEachRocket(Rocket)
+    await sucessRateRocket(Rocket)
+    await informRocketEngineThrustSeaLevel(Rocket.engines.thrust_sea_level);
+    await informRocketEngineThrustVacuum(Rocket.engines.thrust_vacuum);
+    await imageRockets(Rocket.flickr_images);
+
+    await tableRocketColum1(Rocket)
+    await tableRocketColum2(Rocket)
+
+    await progressRocketWeight(Rocket)
+    await progressPayloadWeights(Rocket)
+    await progressHeightRocket(Rocket)
+    await progressDiameterRocket(Rocket)
+    await progressSecondStageDiameterRocket(Rocket)
+    await progressSecondStageHeightRocket(Rocket)
+
+
+}
+export const paginationRockets = async()=>{
+    let rockets = await getAllRockets();
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+  
+    rockets.forEach((val,id) => {
+        let a = document.createElement("a");
+        a.setAttribute("href","#");
+        a.id = val.id;
+        a.textContent = id+1;
+        a.addEventListener("click", getRocketsId)
+        div.appendChild(a);
+    });
+    
+    let [a1,a2,a3,a4] = div.children
+    a1.click();
+    // <div class="buttom__paginacion">
+    //     <a href="#">&laquo;</a> 
+    //     <a href="#" class="activo">1</a>
+    //     <a href="#">2</a>
+    //     <a href="#">3</a>
+    //     <a href="#">4</a>
+    //     <a href="#">&raquo;</a>
+    // </div>
+    
+    return div;
+}
 
 const getCapsulesId = async(e)=>{
     e.preventDefault();
-    console.log(e.target.id);
-    
     if(e.target.dataset.page){
         let paginacion = document.querySelector("#paginacion");
         paginacion.innerHTML = ""
         paginacion.append(await paginationCapsules(Number(e.target.dataset.page)))
-        console.log(paginacion);
-        
+        setTimeout(() => {
+            let paginacion = document.querySelector("#paginacion");
+            let a1 = paginacion.children[0].children[1]
+            console.log(a1);
+            a1.click();
+        }, 200);
     }
     let a = e.target.parentElement.children;
     for(let val of a){
@@ -270,72 +208,16 @@ const getCapsulesId = async(e)=>{
     }
     e.target.classList.add('activo');
     
-
-    let Capsules = await getAllCapsulesId(e.target.id);
-    console.log(Capsules);
+    let Capsule = await getAllCapsulesId(e.target.id);
     await clear();
 
-    await serialCapsules(Capsules.serial)
-    await tableCapsules(Capsules)
+    await nameRockets(Capsule.serial)
+    await informationCapsule(Capsule)
 
 }
-// export const getCompanyId = async(e)=>{
-//     e.preventDefault();
-//     console.log(e.target.id);
-    
-//     if(e.target.dataset.page){
-//         let paginacion = document.querySelector("#paginacion");
-//         paginacion.innerHTML = ""
-//         paginacion.append(await paginationCompany(Number(e.target.dataset.page)))
-//         console.log(paginacion);
-        
-//     }
-//     let a = e.target.parentElement.children;
-//     for(let val of a){
-//         val.classList.remove('activo');
-//     }
-//     e.target.classList.add('activo');
-    
-
-//     let Company = await getAllCompanyId(e.target.id);
-//     console.log(Company);
-//     await clear();
-
-//     await tableCompany1(Company)
-
-
-
-
-// }
-const getHistoryId = async(e)=>{
-    e.preventDefault();
-    console.log(e.target.id);
-    
-    if(e.target.dataset.page){
-        let paginacion = document.querySelector("#paginacion");
-        paginacion.innerHTML = ""
-        paginacion.append(await paginationHistory(Number(e.target.dataset.page)))
-        console.log(paginacion);
-        
-    }
-    let a = e.target.parentElement.children;
-    for(let val of a){
-        val.classList.remove('activo');
-    }
-    e.target.classList.add('activo');
-    
-
-    let History = await getAllHistoryId(e.target.id);
-    console.log(History);
-    await clear();
-
-    await tableHistory(History)
-
-}
-
-export const paginationHistory = async(page=1, limit=4)=>{  
+export const paginationCapsules = async(page=1, limit=4)=>{  
      
-    let {docs, pagingCounter, totalPages, nextPage} = await getAllHistory(page, limit)
+    let {docs, pagingCounter, totalPages, nextPage} = await getAllCapsules(page, limit)
 
     let div = document.createElement("div");
     div.classList.add("buttom__paginacion")
@@ -345,14 +227,14 @@ export const paginationHistory = async(page=1, limit=4)=>{
     start.setAttribute("href","#");
     start.innerHTML = "&laquo";
     start.setAttribute("data-page", (page==1) ? totalPages : page-1)
-    start.addEventListener("click", getHistoryId)
+    start.addEventListener("click", getCapsulesId)
     div.appendChild(start);
     docs.forEach((val,id) => {
         let a = document.createElement("a");
         a.setAttribute("href","#");
         a.id = val.id;
         a.textContent = pagingCounter;
-        a.addEventListener("click", getHistoryId)
+        a.addEventListener("click", getCapsulesId)
         div.appendChild(a);
         pagingCounter++
     });
@@ -360,7 +242,7 @@ export const paginationHistory = async(page=1, limit=4)=>{
     end.setAttribute("href","#");
     end.innerHTML = "&raquo;";
     end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
-    end.addEventListener("click", getHistoryId)
+    end.addEventListener("click", getCapsulesId)
     div.appendChild(end);
     console.log(div);
     let [back, a1,a2,a3,a4, next] = div.children
@@ -376,18 +258,18 @@ export const paginationHistory = async(page=1, limit=4)=>{
     return div;
 }
 
-
-
-const getCoresId = async(e)=>{
+const getCrewId = async(e)=>{
     e.preventDefault();
-    console.log(e.target.id);
-    
     if(e.target.dataset.page){
         let paginacion = document.querySelector("#paginacion");
         paginacion.innerHTML = ""
-        paginacion.append(await paginationHistory(Number(e.target.dataset.page)))
-        console.log(paginacion);
-        
+        paginacion.append(await paginationCrew(Number(e.target.dataset.page)))
+        setTimeout(() => {
+            let paginacion = document.querySelector("#paginacion");
+            let a1 = paginacion.children[0].children[1]
+            console.log(a1);
+            a1.click();
+        }, 200);
     }
     let a = e.target.parentElement.children;
     for(let val of a){
@@ -395,12 +277,139 @@ const getCoresId = async(e)=>{
     }
     e.target.classList.add('activo');
     
-
-    let Cores = await getAllCoresId(e.target.id);
-    console.log(Cores);
+    let Crew = await getAllCrewId(e.target.id);
     await clear();
 
-    await tableCores(Cores)
+    await nameRockets(Crew.name)
+    await informationCrew(Crew)
+
+}
+
+
+export const paginationCrew = async(page=1, limit=4)=>{  
+     
+    let {docs, pagingCounter, totalPages, nextPage} = await getAllCrew(page, limit)
+
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+
+    
+    let start = document.createElement("a");
+    start.setAttribute("href","#");
+    start.innerHTML = "&laquo";
+    start.setAttribute("data-page", (page==1) ? totalPages : page-1)
+    start.addEventListener("click", getCrewId)
+    div.appendChild(start);
+    docs.forEach((val,id) => {
+        let a = document.createElement("a");
+        a.setAttribute("href","#");
+        a.id = val.id;
+        a.textContent = pagingCounter;
+        a.addEventListener("click", getCrewId)
+        div.appendChild(a);
+        pagingCounter++
+    });
+    let end = document.createElement("a");
+    end.setAttribute("href","#");
+    end.innerHTML = "&raquo;";
+    end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
+    end.addEventListener("click", getCrewId)
+    div.appendChild(end);
+    console.log(div);
+    let [back, a1,a2,a3,a4, next] = div.children
+    a1.click();
+
+    return div;
+}
+
+const getLaunchesId = async(e)=>{
+    e.preventDefault();
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationLaunches(Number(e.target.dataset.page)))
+        setTimeout(() => {
+            let paginacion = document.querySelector("#paginacion");
+            let a1 = paginacion.children[0].children[1]
+            console.log(a1);
+            a1.click();
+        }, 200);
+    }
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+    let Launches = await getAllLaunchesId(e.target.id);
+    await clear();
+
+    await nameRockets(Launches.name)
+    await informationLaunches(Launches)
+
+
+}
+
+export const paginationLaunches = async(page=1, limit=4)=>{  
+     
+    let {docs, pagingCounter, totalPages, nextPage} = await getAllLaunches(page, limit)
+
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+
+    
+    let start = document.createElement("a");
+    start.setAttribute("href","#");
+    start.innerHTML = "&laquo";
+    start.setAttribute("data-page", (page==1) ? totalPages : page-1)
+    start.addEventListener("click", getLaunchesId)
+    div.appendChild(start);
+    docs.forEach((val,id) => {
+        let a = document.createElement("a");
+        a.setAttribute("href","#");
+        a.id = val.id;
+        a.textContent = pagingCounter;
+        a.addEventListener("click", getLaunchesId)
+        div.appendChild(a);
+        pagingCounter++
+    });
+    let end = document.createElement("a");
+    end.setAttribute("href","#");
+    end.innerHTML = "&raquo;";
+    end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
+    end.addEventListener("click", getLaunchesId)
+    div.appendChild(end);
+    console.log(div);
+    let [back, a1,a2,a3,a4, next] = div.children
+    a1.click();
+
+    return div;
+}
+
+const getCoresId = async(e)=>{
+    e.preventDefault();
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationCores(Number(e.target.dataset.page)))
+        setTimeout(() => {
+            let paginacion = document.querySelector("#paginacion");
+            let a1 = paginacion.children[0].children[1]
+            console.log(a1);
+            a1.click();
+        }, 200);
+    }
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+    let Cores = await getAllCoresId(e.target.id);
+    await clear();
+
+    await nameRockets(Cores.serial)
+    await informationCores(Cores)
 
 }
 
@@ -436,13 +445,471 @@ export const paginationCores = async(page=1, limit=4)=>{
     console.log(div);
     let [back, a1,a2,a3,a4, next] = div.children
     a1.click();
-    // <div class="buttom__paginacion">
-    //     <a href="#">&laquo;</a> 
-    //     <a href="#" class="activo">1</a>
-    //     <a href="#">2</a>
-    //     <a href="#">3</a>
-    //     <a href="#">4</a>
-    //     <a href="#">&raquo;</a>
-    // </div>
+
+    return div;
+}
+
+const getLandpadsId = async(e)=>{
+    e.preventDefault();
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationLandpads(Number(e.target.dataset.page)))
+        setTimeout(() => {
+            let paginacion = document.querySelector("#paginacion");
+            let a1 = paginacion.children[0].children[1]
+            console.log(a1);
+            a1.click();
+        }, 200);
+    }
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+    let Landpads = await getAllLandpadsId(e.target.id);
+    await clear();
+
+    await nameRockets(Landpads.full_name)
+    await informationLandpads(Landpads)
+
+}
+
+export const paginationLandpads = async(page=1, limit=4)=>{  
+     
+    let {docs, pagingCounter, totalPages, nextPage} = await getAllLandpads(page, limit)
+
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+
+    
+    let start = document.createElement("a");
+    start.setAttribute("href","#");
+    start.innerHTML = "&laquo";
+    start.setAttribute("data-page", (page==1) ? totalPages : page-1)
+    start.addEventListener("click", getLandpadsId)
+    div.appendChild(start);
+    docs.forEach((val,id) => {
+        let a = document.createElement("a");
+        a.setAttribute("href","#");
+        a.id = val.id;
+        a.textContent = pagingCounter;
+        a.addEventListener("click", getLandpadsId)
+        div.appendChild(a);
+        pagingCounter++
+    });
+    let end = document.createElement("a");
+    end.setAttribute("href","#");
+    end.innerHTML = "&raquo;";
+    end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
+    end.addEventListener("click", getLandpadsId)
+    div.appendChild(end);
+    console.log(div);
+    let [back, a1,a2,a3,a4, next] = div.children
+    a1.click();
+
+    return div;
+}
+
+const getShipsId = async(e)=>{
+    e.preventDefault();
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationShips(Number(e.target.dataset.page)))
+        setTimeout(() => {
+            let paginacion = document.querySelector("#paginacion");
+            let a1 = paginacion.children[0].children[1]
+            console.log(a1);
+            a1.click();
+        }, 200);
+    }
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+    let Ships = await getAllShipsId(e.target.id);
+    await clear();
+
+    await nameRockets(Ships.name)
+    await informationShips(Ships)
+
+}
+
+
+export const paginationShips = async(page=1, limit=4)=>{  
+     
+    let {docs, pagingCounter, totalPages, nextPage} = await getAllShips(page, limit)
+
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+
+    
+    let start = document.createElement("a");
+    start.setAttribute("href","#");
+    start.innerHTML = "&laquo";
+    start.setAttribute("data-page", (page==1) ? totalPages : page-1)
+    start.addEventListener("click", getShipsId)
+    div.appendChild(start);
+    docs.forEach((val,id) => {
+        let a = document.createElement("a");
+        a.setAttribute("href","#");
+        a.id = val.id;
+        a.textContent = pagingCounter;
+        a.addEventListener("click", getShipsId)
+        div.appendChild(a);
+        pagingCounter++
+    });
+    let end = document.createElement("a");
+    end.setAttribute("href","#");
+    end.innerHTML = "&raquo;";
+    end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
+    end.addEventListener("click", getShipsId)
+    div.appendChild(end);
+    console.log(div);
+    let [back, a1,a2,a3,a4, next] = div.children
+    a1.click();
+
+    return div;
+}
+
+export const getAllCompany = async()=>{
+
+    let data = await getCompany()
+    await clear()
+    await nameRockets(data.name)
+    await informationCompany(data)
+}
+
+const getDragonsId = async(e)=>{
+    e.preventDefault();
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationDragons(Number(e.target.dataset.page)))
+        setTimeout(() => {
+            let paginacion = document.querySelector("#paginacion");
+            let a1 = paginacion.children[0].children[1]
+            console.log(a1);
+            a1.click();
+        }, 200);
+    }
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+    let Dragons = await getAllDragonsId(e.target.id);
+    await clear();
+
+    await nameRockets(Dragons.name)
+    await informationDragons(Dragons)
+
+}
+
+
+export const paginationDragons = async(page=1, limit=4)=>{  
+     
+    let {docs, pagingCounter, totalPages, nextPage} = await getAllDragons(page, limit)
+
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+
+    
+    let start = document.createElement("a");
+    start.setAttribute("href","#");
+    start.innerHTML = "&laquo";
+    start.setAttribute("data-page", (page==1) ? totalPages : page-1)
+    start.addEventListener("click", getDragonsId)
+    div.appendChild(start);
+    docs.forEach((val,id) => {
+        let a = document.createElement("a");
+        a.setAttribute("href","#");
+        a.id = val.id;
+        a.textContent = pagingCounter;
+        a.addEventListener("click", getDragonsId)
+        div.appendChild(a);
+        pagingCounter++
+    });
+    let end = document.createElement("a");
+    end.setAttribute("href","#");
+    end.innerHTML = "&raquo;";
+    end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
+    end.addEventListener("click", getDragonsId)
+    div.appendChild(end);
+    console.log(div);
+    let [back, a1,a2,a3,a4, next] = div.children
+    a1.click();
+
+    return div;
+}
+
+const getHistoryId = async(e)=>{
+    e.preventDefault();
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationHistory(Number(e.target.dataset.page)))
+        setTimeout(() => {
+            let paginacion = document.querySelector("#paginacion");
+            let a1 = paginacion.children[0].children[1]
+            console.log(a1);
+            a1.click();
+        }, 200);
+    }
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+    let History = await getAllHistoryId(e.target.id);
+    await clear();
+
+    await nameRockets(History.title)
+    await informationHistory(History)
+
+}
+
+
+export const paginationHistory = async(page=1, limit=4)=>{  
+     
+    let {docs, pagingCounter, totalPages, nextPage} = await getAllHistory(page, limit)
+
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+
+    
+    let start = document.createElement("a");
+    start.setAttribute("href","#");
+    start.innerHTML = "&laquo";
+    start.setAttribute("data-page", (page==1) ? totalPages : page-1)
+    start.addEventListener("click", getHistoryId)
+    div.appendChild(start);
+    docs.forEach((val,id) => {
+        let a = document.createElement("a");
+        a.setAttribute("href","#");
+        a.id = val.id;
+        a.textContent = pagingCounter;
+        a.addEventListener("click", getHistoryId)
+        div.appendChild(a);
+        pagingCounter++
+    });
+    let end = document.createElement("a");
+    end.setAttribute("href","#");
+    end.innerHTML = "&raquo;";
+    end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
+    end.addEventListener("click", getHistoryId)
+    div.appendChild(end);
+    console.log(div);
+    let [back, a1,a2,a3,a4, next] = div.children
+    a1.click();
+
+    return div;
+}
+
+const getLaunchPadsId = async(e)=>{
+    e.preventDefault();
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationLaunchPads(Number(e.target.dataset.page)))
+        setTimeout(() => {
+            let paginacion = document.querySelector("#paginacion");
+            let a1 = paginacion.children[0].children[1]
+            console.log(a1);
+            a1.click();
+        }, 200);
+    }
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+    let LaunchPads = await getAllLaunchPadsId(e.target.id);
+    await clear();
+
+    await nameRockets(LaunchPads.name)
+    await informationLaunchPads(LaunchPads)
+
+}
+
+
+export const paginationLaunchPads = async(page=1, limit=4)=>{  
+     
+    let {docs, pagingCounter, totalPages, nextPage} = await getAllLaunchPads(page, limit)
+
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+
+    
+    let start = document.createElement("a");
+    start.setAttribute("href","#");
+    start.innerHTML = "&laquo";
+    start.setAttribute("data-page", (page==1) ? totalPages : page-1)
+    start.addEventListener("click", getLaunchPadsId)
+    div.appendChild(start);
+    docs.forEach((val,id) => {
+        let a = document.createElement("a");
+        a.setAttribute("href","#");
+        a.id = val.id;
+        a.textContent = pagingCounter;
+        a.addEventListener("click", getLaunchPadsId)
+        div.appendChild(a);
+        pagingCounter++
+    });
+    let end = document.createElement("a");
+    end.setAttribute("href","#");
+    end.innerHTML = "&raquo;";
+    end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
+    end.addEventListener("click", getLaunchPadsId)
+    div.appendChild(end);
+    console.log(div);
+    let [back, a1,a2,a3,a4, next] = div.children
+    a1.click();
+
+    return div;
+}
+
+export const getPayloadsId = async(e)=>{
+    e.preventDefault();
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationPayloads (Number(e.target.dataset.page)))
+        setTimeout(() => {
+            let paginacion = document.querySelector("#paginacion");
+            let a1 = paginacion.children[0].children[1]
+            console.log(a1);
+            a1.click();
+        }, 200);
+    }
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+    let Payloads  = await getAllPayloadsId(e.target.id);
+    await clear();
+
+    await nameRockets(Payloads.name)
+    await informationPayloads(Payloads)
+
+}
+
+
+export const paginationPayloads = async(page=1, limit=4)=>{  
+     
+    let {docs, pagingCounter, totalPages, nextPage} = await getAllPayloads(page, limit)
+
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+
+    
+    let start = document.createElement("a");
+    start.setAttribute("href","#");
+    start.innerHTML = "&laquo";
+    start.setAttribute("data-page", (page==1) ? totalPages : page-1)
+    start.addEventListener("click", getPayloadsId)
+    div.appendChild(start);
+    docs.forEach((val,id) => {
+        let a = document.createElement("a");
+        a.setAttribute("href","#");
+        a.id = val.id;
+        a.textContent = pagingCounter;
+        a.addEventListener("click", getPayloadsId)
+        div.appendChild(a);
+        pagingCounter++
+    });
+    let end = document.createElement("a");
+    end.setAttribute("href","#");
+    end.innerHTML = "&raquo;";
+    end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
+    end.addEventListener("click", getPayloadsId)
+    div.appendChild(end);
+    console.log(div);
+    let [back, a1,a2,a3,a4, next] = div.children
+    a1.click();
+
+    return div;
+}
+
+export const getAllRoadster = async()=>{
+
+    let data = await getRoadster()
+    await clear();
+    await nameRockets(data.name)
+    await informationRoadster(data)
+
+
+}
+
+const getStarlinkId = async(e)=>{
+    e.preventDefault();
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationStarlink(Number(e.target.dataset.page)))
+        setTimeout(() => {
+            let paginacion = document.querySelector("#paginacion");
+            let a1 = paginacion.children[0].children[1]
+            console.log(a1);
+            a1.click();
+        }, 200);
+    }
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+    let Starlink  = await getAllStarlinkId(e.target.id);
+    await clear();
+
+    await nameRockets(Starlink.spaceTrack.OBJECT_NAME)
+    await informationStarlink(Starlink)
+
+}
+
+
+export const paginationStarlink = async(page=1, limit=4)=>{  
+     
+    let {docs, pagingCounter, totalPages, nextPage} = await getAllStarlink(page, limit)
+
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+
+    
+    let start = document.createElement("a");
+    start.setAttribute("href","#");
+    start.innerHTML = "&laquo";
+    start.setAttribute("data-page", (page==1) ? totalPages : page-1)
+    start.addEventListener("click", getStarlinkId)
+    div.appendChild(start);
+    docs.forEach((val,id) => {
+        let a = document.createElement("a");
+        a.setAttribute("href","#");
+        a.id = val.id;
+        a.textContent = pagingCounter;
+        a.addEventListener("click", getStarlinkId)
+        div.appendChild(a);
+        pagingCounter++
+    });
+    let end = document.createElement("a");
+    end.setAttribute("href","#");
+    end.innerHTML = "&raquo;";
+    end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
+    end.addEventListener("click", getStarlinkId)
+    div.appendChild(end);
+    console.log(div);
+    let [back, a1,a2,a3,a4, next] = div.children
+    a1.click();
+
     return div;
 }
