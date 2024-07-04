@@ -1,10 +1,10 @@
 :root{
-    --color--one: #343549;
-    --color--one--rgba: #404790;
-    --color--two: #cacaf0;
-    --color--three: #69AEFF;
+    --color--one: #0a0a0a;
+    --color--one--rgba: #00008b;
+    --color--two: #ff4500;
+    --color--three: #00ff00;
     --color--four: #e52d2d;
-    --color--five: #eeebeb63;
+    --color--five: #eeebeb;
     --color--six: #ffd733;
 
     --layout-description-container-x: 10px;

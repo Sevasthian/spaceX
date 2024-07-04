@@ -4,15 +4,39 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-
-    font-family: "Butti-Regular";
-
+}
+body {
+    background: url("https://i.pinimg.com/originals/b3/2e/dc/b32edc94a13b9e355663a3c8960720ae.gif") no-repeat center center fixed;
+    background-size: cover;
+    /* Añadir un overlay de neón */
+    position: relative;
 }
 
-body {
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Oscurecer ligeramente el fondo */
+    background: radial-gradient(circle, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 70%);
+    mix-blend-mode: multiply;
+    pointer-events: none; /* Permitir interacción con el contenido debajo */
+    z-index: -1; /* Asegurarse de que el overlay esté en frente */
+}
 
-    background: url("https://w.wallha.com/ws/14/2aqlmiZ4.png");
-
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1c18ffbd;
+    mix-blend-mode: color-dodge;
+    pointer-events: none;
+    z-index: -2;
 }
 
 #rocketImageCenter{

@@ -47,12 +47,11 @@ export const getAllRocketInformation= (rocket) => {
 
     let stage_photo = document.createElement('div')
     stage_photo.classList.add('stage__photo')
-    let stage_photo_image = document.createElement('img')
-    stage_photo_image.src = 'https://cdn-icons-png.freepik.com/512/3840/3840653.png'
+ 
 
     stagesContainer.append(stage1)
     stage1.append(stage_photo)
-    stage_photo.append(stage_photo_image)
+
 
 
     //Informacion de la etapa 1
@@ -87,12 +86,12 @@ export const getAllRocketInformation= (rocket) => {
     let stage2_photo = document.createElement('div')
     stage2_photo.classList.add('stage__photo')
 
-    let stage2_photo_image = document.createElement('img')
-    stage2_photo_image.src = 'https://cdn-icons-png.flaticon.com/256/3840/3840738.png'
+
+    
 
     stagesContainer.append(stage2)
     stage2.append(stage2_photo)
-    stage2_photo.append(stage2_photo_image)
+
 
     //Informacion de la etapa 2
 
@@ -136,8 +135,8 @@ export const getAllRocketInformation= (rocket) => {
     let firstFlightIcon = document.createElement('div')
     firstFlightIcon.classList.add('icon')
 
-    let firstFlightIconImage = document.createElement('img')
-    firstFlightIconImage.src = 'https://cdn3d.iconscout.com/3d/premium/thumb/rocket-3994327-3307661.png?f=webp'
+ 
+
 
     let firstFlightText = document.createElement('div')
     firstFlightText.classList.add('text')
@@ -154,7 +153,7 @@ export const getAllRocketInformation= (rocket) => {
 
     moreInformationContainer.append(firstFlight)
     firstFlight.append(firstFlightIcon)
-    firstFlightIcon.append(firstFlightIconImage)
+
     firstFlight.append(firstFlightText)
     firstFlightText.append(firstFlightTitle)
     firstFlightText.append(firstFlightDate)
@@ -167,8 +166,8 @@ export const getAllRocketInformation= (rocket) => {
     let costLaunchIcon = document.createElement('div')
     costLaunchIcon.classList.add('icon')
 
-    let costLaunchIconImage = document.createElement('img')
-    costLaunchIconImage.src = 'https://cdn3d.iconscout.com/3d/premium/thumb/dollar-5374098-4492234.png?f=webp'
+
+
 
     let costLaunchText = document.createElement('div')
     costLaunchText.classList.add('text')
@@ -184,7 +183,7 @@ export const getAllRocketInformation= (rocket) => {
 
     moreInformationContainer.append(costLaunch)
     costLaunch.append(costLaunchIcon)
-    costLaunchIcon.append(costLaunchIconImage)
+
     costLaunch.append(costLaunchText)
     costLaunchText.append(costLaunchTitle)
     costLaunchText.append(costLaunchDollars)
@@ -197,9 +196,7 @@ export const getAllRocketInformation= (rocket) => {
     let statusRocketIcon = document.createElement('div')
     statusRocketIcon.classList.add('icon')
 
-    let statusRocketIconImage = document.createElement('img')
-    statusRocketIconImage.src = 'https://cdn3d.iconscout.com/3d/premium/thumb/switch-on-8820071-7139032.png?f=webp'
-
+  
     let statusRocketText = document.createElement('div')
     statusRocketText.classList.add('text')
 
@@ -213,7 +210,7 @@ export const getAllRocketInformation= (rocket) => {
 
     moreInformationContainer.append(statusRocket)
     statusRocket.append(statusRocketIcon)
-    statusRocketIcon.append(statusRocketIconImage)
+  
     statusRocket.append(statusRocketText)
     statusRocketText.append(statusRocketTitle)
     statusRocketText.append(statusRocketStatus)
@@ -221,8 +218,6 @@ export const getAllRocketInformation= (rocket) => {
     information.push(rocketId)
     information.push(descriptionTitle )
     information.push(descriptionEachRocket)
-    information.push(stagesTitle)
-    information.push(stagesContainer)
     information.push(moreInformationTitle)
     information.push(moreInformationContainer)
 

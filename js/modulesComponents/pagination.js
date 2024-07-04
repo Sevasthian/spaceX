@@ -15,7 +15,6 @@ import {
 import { 
     informRocketEngineThrustSeaLevel, 
     informRocketEngineThrustVacuum,
-    countryOfEachRocket,
     sucessRateRocket
 
 } from "./inform.js";
@@ -143,7 +142,7 @@ const getRocketsId = async(e)=>{
     description__item.append(...getAllRocketInformation(Rocket))
     await nameRockets(Rocket.name)
 
-    await countryOfEachRocket(Rocket)
+    
     await sucessRateRocket(Rocket)
     await informRocketEngineThrustSeaLevel(Rocket.engines.thrust_sea_level);
     await informRocketEngineThrustVacuum(Rocket.engines.thrust_vacuum);

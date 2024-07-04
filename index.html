@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SpaceX</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script> -->
+
     <link rel="stylesheet" href="css/style.css">
     <script type="module" src="js/main.js" defer></script>
 </head>
@@ -62,87 +61,87 @@
                 <ul id="buttons">
                     <li id="rocket">
                         <a class="select" href="#">
-                            <i class="bi bi-rocket-fill"></i>
+                            <img src="storage/rockets.svg"  style="filter: invert(1); width: 30px;" alt="">
                             <span>Rockets</span>
                         </a>
                     </li>
                     <li id="capsules">
                         <a href="#">
-                            <i class="bi bi-triangle-fill"></i>
+                            <img src="storage/capsule-space-capsule-svgrepo-com.svg" style="filter: invert(1); width: 30px;" alt="">
                             <span>Capsules</span>
-                        </a>
-                    </li>
-                    <li id="crew">
-                        <a href="#">
-                            <i class="bi bi-people-fill"></i>
-                            <span>Crew</span>
-                        </a>
-                    </li>
-                    <li id="launches">
-                        <a href="#">
-                            <i class="bi bi-capslock-fill"></i>
-                            <span>Launches</span>
                         </a>
                     </li>
                     <li id="cores">
                         <a href="#">
-                            <i class="bi bi-stop-circle-fill"></i>
+                            <img src="storage/core.svg"   style="filter: invert(1); width: 30px;" alt="">
                             <span>Cores</span>
-                        </a>
-                    </li>
-                    <li id="landspads">
-                        <a href="#">
-                            <i class="bi bi-globe-americas"></i>
-                            <span>Landpads</span>
                         </a>
                     </li>
                     <li id="ships">
                         <a href="#">
-                            <i class="bi bi-tsunami"></i>
+                            <img src="storage/ships.svg"  style="filter: invert(1); width: 30px;" alt="">
                             <span>Ships</span>
+                        </a>
+                    </li>
+                    <li id="landspads">
+                        <a href="#">
+                            <img src="storage/landing.svg"  style="filter: invert(1); width: 30px;" alt="">
+                            <span>Landpads</span>
+                        </a>
+                    </li>
+                    <li id="launches">
+                        <a href="#">
+                            <img src="storage/launches.svg"  style="filter: invert(1); width: 30px;" alt="">
+                            <span>Launches</span>
                         </a>
                     </li>
                     <li id="company">
                         <a href="#">
-                            <i class="bi bi-buildings-fill"></i>
+                            <img src="storage/company-svgrepo-com.svg"  style="filter: invert(1); width: 30px;" alt="">
                             <span>Company</span>
                         </a>
                     </li>
-                    <li id="dragos">
+                    <li id="crew">
                         <a href="#">
-                            <i class="bi bi-broadcast"></i>
-                            <span>Dragons</span>
-                        </a>
-                    </li>
-                    <li id="history">
-                        <a href="#">
-                            <i class="bi bi-pen-fill"></i>
-                            <span>History</span>
-                        </a>
-                    </li>
-                    <li id="launchpads">
-                        <a href="#">
-                            <i class="bi bi-pentagon-half"></i>
-                            <span>Launchpads</span>
+                            <img src="storage/crew.svg"  style="filter: invert(1); width: 30px;" alt="">
+                            <span>Crew</span>
                         </a>
                     </li>
                     <li id="payloads">
                         <a href="#">
-                            <i class="bi bi-opencollective"></i>
+                            <img src="storage/payloads.svg"  style="filter: invert(1); width: 30px;" alt="">
                             <span>Payloads</span>
+                        </a>
+                    </li>
+                    <li id="dragos">
+                        <a href="#">
+                            <img src="storage/Dragons.svg"  style="filter: invert(1); width: 30px;" alt="">
+                            <span>Dragons</span>
+                        </a>
+                    </li>
+                    <li id="launchpads">
+                        <a href="#">
+                            <img src="storage/launchpads.svg"  style="filter: invert(1); width: 30px;" alt="">
+                            <span>Launchpads</span>
+                        </a>
+                    </li>
+                    <li id="starlink">
+                        <a href="#">
+                            <img src="storage/Starlink.svg"  style="filter: invert(1); width: 30px;" alt="">
+                            <span>Starlink</span>
                         </a>
                     </li>
                     <li id="roaster">
                         <a href="#">
-                            <i class="bi bi-ev-front-fill"></i>
+                            <img src="storage/roadster.svg"  style="filter: invert(1); width: 30px;" alt="">
                             <span>Roadster</span>
                         </a>
-                        <li id="starlink">
-                            <a href="#">
-                                <i class="bi bi-stars"></i>
-                                <span>Starlink</span>
-                            </a>
-                        </li>
+                    </li>
+                    <li id="history">
+                        <a href="#">
+                            <img src="storage/history.svg"  style="filter: invert(1); width: 30px;" alt="">
+                            <span>History</span>
+                        </a>
                     </li>
                 </ul>
             </footer>
@@ -158,7 +157,9 @@
             <div id="paginacion" class="information__buttom"></div>
         </nav>
 
-        <img id="rocketImageCenter" src="https://png.pngtree.com/png-vector/20240128/ourmid/pngtree-d-render-rocket-3d-rendering-flying-space-rocket-3d-render-spaceship-png-image_11506392.png" alt="">
+        <img id="rocketImageCenter" src="storage/imageCentral.png" alt="">
+
+        
     </main>
 </body>
 </html>

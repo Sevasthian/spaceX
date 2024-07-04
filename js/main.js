@@ -1,4 +1,4 @@
-import { getCompany } from "./modules/company.js";
+
 import { 
     getAllCompany,
     getAllRoadster,

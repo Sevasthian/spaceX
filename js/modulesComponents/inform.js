@@ -80,28 +80,28 @@ export const informRocketEngineThrustVacuum = async(thrust_vacuum)=>{
     // </div>
 }
 
-export const countryOfEachRocket = async(rocket)=>{
+// export const countryOfEachRocket = async(rocket)=>{
 
-    let country_rocket = document.querySelector('#country_rocket');
-    country_rocket.innerHTML = /*html*/`
-    <div class="divCountry">
-        <div class="flagCountry">
-            <img src="https://cdn3d.iconscout.com/3d/premium/thumb/united-states-flag-pole-5082845-4234133.png" alt="">
-        </div>
-        <div class="informationCountry">
-            <h2>Country of the rocket</h2>
-            <p>${rocket.country}</p>
-        </div>
+//     let country_rocket = document.querySelector('#country_rocket');
+//     country_rocket.innerHTML = /*html*/`
+//     <div class="divCountry">
+//         <div class="flagCountry">
+//             <img src="https://cdn3d.iconscout.com/3d/premium/thumb/united-states-flag-pole-5082845-4234133.png" alt="">
+//         </div>
+//         <div class="informationCountry">
+//             <h2>Country of the rocket</h2>
+//             <p>${rocket.country}</p>
+//         </div>
 
-    </div>
-    `
+//     </div>
+//     `
 
-    if (rocket.country == 'Republic of the Marshall Islands'){
-        country_rocket.children[0].children[0].innerHTML = /*html*/ `
-        <img src="https://cdn3d.iconscout.com/3d/premium/thumb/marshall-islands-flag-pole-5082826-4234114.png?f=webp" alt="">
-        `
-    }
-}
+//     if (rocket.country == 'Republic of the Marshall Islands'){
+//         country_rocket.children[0].children[0].innerHTML = /*html*/ `
+//         <img src="https://cdn3d.iconscout.com/3d/premium/thumb/marshall-islands-flag-pole-5082826-4234114.png?f=webp" alt="">
+//         `
+//     }
+// }
 
 
 
