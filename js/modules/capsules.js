@@ -1,4 +1,23 @@
+import { styleOfEachProperty } from "../modulesComponents/styleProperties.js";
 
+export const getAllCapsules = async (page,limit)=>{
+    let config = {
+        headers:{
+            "content-type": "application/json"
+        },
+        method: "POST",
+        body: JSON.stringify({
+            "options": {
+                page,
+                limit
+            }
+        })
+    }
+    let res = await fetch("https://api.spacexdata.com/v4/capsules/query", config)
+    let data = await res.json();
+    console.log(data);
+    return data;
+}
 
 export const getAllCapsulesId = async (id)=>{
     let res = await fetch(`https://api.spacexdata.com/v4/capsules/${id}`)
@@ -6,117 +25,147 @@ export const getAllCapsulesId = async (id)=>{
     return data;
 }
 
-export const serialCapsules = async(serial)=>{
-    let header__title = document.querySelector("#header__title");
-    header__title.innerHTML = "";
-    header__title.textContent = serial;
-}
+export const informationCapsule = async (Capsule) =>{
 
-export const getAllCapsules = async (page , limit)=>{
-    let config = {
-        headers:{
-            "content-type" : "aplication/json"},
-            method: "POST",
-            body:  JSON.stringify({
-                "options":{
-                    page,
-                    limit
-                }
-            })
+    let firstTableInformation = document.querySelector("#country_rocket")
+    firstTableInformation.innerHTML = /*html*/`
+    <style>${styleOfEachProperty()}</style>
+            <div class="table__property">
+        <div class="title">
+            <h3>ID of the capsule</h3>
+        </div>
+        <div class="value">
+            <p>${Capsule.id}</p>
+        </div>
+        </div>
+        <div class="table__property">
+        <div class="title">
+            <h3>Status</h3>
+        </div>
+        <div class="value">
+            <p>${Capsule.status}</p>
+        </div>
+        </div>
+        <div class="table__property">
+        <div class="title">
+            <h3>Type</h3>
+        </div>
+        <div class="value">
+            <p>${Capsule.type}</p>
+        </div>
+        </div>
+        `
+
+    let secondTableInformationTable = document.querySelector("#sucess_rate_rocket")
+    secondTableInformationTable.innerHTML = /*html*/`
+    <style>${styleOfEachProperty()}</style>
+        <div class="table__property">
+            <div class="title">
+                <h3>Serial of the capsule</h3>
+            </div>
+            <div class="value">
+                <p>${Capsule.serial}</p>
+            </div>
+            </div>
+            <div class="table__property">
+            <div class="title">
+                <h3>Water landings</h3>
+            </div>
+            <div class="value">
+                <p>${Capsule.water_landings}</p>
+            </div>
+            </div>
+            <div class="table__property">
+            <div class="title">
+                <h3>Land landings</h3>
+            </div>
+            <div class="value">
+                <p>${Capsule.land_landings}</p>
+            </div>
+            </div>
+    `
+
+    let thirdTableInformationTable = document.querySelector("#section__image")
+    thirdTableInformationTable.innerHTML = /*html*/`
+    <style>
+
+    #section__image {
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: var(--color--five);
+    }
+
+    </style>
+    <h1 style="color: var(--color--five); margin-inline: auto; margin-top: 20px">LAUNCHES</h1>
+    <hr style="color: var(--color--five); margin-block: 6px; width: 80%">
+    <table>
+        <tr>
+            <td style="font-weight: bold">${Capsule.launches[0] || " "}</td>
+        </tr>
+        <tr>
+            <td style="font-weight: bold">${Capsule.launches[1] || " "}</td>
+        </tr>
+        <tr>
+            <td style="font-weight: bold">${Capsule.launches[2] || " "} </td>
+        </tr>
+    </table>`
+
+    thirdTableInformationTable.innerHTML += /*html*/`
+
+    <style>
+
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
         }
-    let res = await fetch("https://api.spacexdata.com/v4/capsules/query", config)
-    let data = await res.json();
-    console.log(data);
-    
-    return data;
-}
-
-
-
-
-
-
-export const tableCapsules = async (Capsules)=>{
-
-    let information__table__1 = document.querySelector("#section__information__1");
-    information__table__1.innerHTML = "";
-    // let h3 = document.createElement("h3");
-    // h3.textContent = "Reuse Count"
-    // let hr = document.createElement("hr");
-    // section__information__container.append(h3, hr)
-
-    let div = document.createElement("div");
-    div.classList.add("table__container__1");
-    // 
-    let div1 = document.createElement("div");
-    let span1 = document.createElement("span");
-    span1.textContent = "Reuse Count"
-    let strong1 = document.createElement("strong");
-    strong1.textContent = `${Capsules.reuse_count}`
-    div1.append(span1, strong1)
-
-    // 
-    let div2 = document.createElement("div");
-    let span2 = document.createElement("span");
-    span2.textContent = "Water Landings"
-    let strong2 = document.createElement("strong");
-    strong2.textContent = `${Capsules.water_landings}`
-    div2.append(span2, strong2)
-    
-    // 
-    let div3 = document.createElement("div");
-    let span3 = document.createElement("span");
-    span3.textContent = "land Landings"
-    let strong3 = document.createElement("strong");
-    strong3.textContent = `${Capsules.land_landings}`
-    div3.append(span3, strong3)
-
-    // 
-    let div4 = document.createElement("div");
-    let span4 = document.createElement("span");
-    span4.textContent = "Tylast Updatepe"
-    let strong4 = document.createElement("strong");
-    strong4.textContent = `${Capsules.last_update}`
-    div4.append(span4, strong4)
-
-    // 
-    let div5 = document.createElement("div");
-    let span5 = document.createElement("span");
-    span5.textContent = "Launches"
-    let strong5 = document.createElement("strong");
-    strong5.textContent = `${Capsules.launches[0]}`
-    div5.append(span5, strong5)
-
-    // 
-    let div6 = document.createElement("div");
-    let span6 = document.createElement("span");
-    span6.textContent = "Status"
-    let strong6 = document.createElement("strong");
-    strong6.textContent = `${Capsules.status}`
-    div6.append(span6, strong6)
-
-
-    let div7 = document.createElement("div");
-    let span7 = document.createElement("span");
-    span7.textContent = "Type"
-    let strong7 = document.createElement("strong");
-    strong7.textContent = `${Capsules.type}`
-    div7.append(span7, strong7)
-
-
-
-
-    div.append(div4, div1, div2, div3, div5, div6,div7)
-    information__table__1.append(div)
-    // 
-
-    // <h3>Title</h3>
-    // <hr>
-    // <div class="table__container__1">
-    //     <div>
-    //         <span>Title</span>
-    //         <strong>Hola</strong>
-    //     </div>
         
-    // </div>
+        
+        .last__update{
+            
+            margin-top: 20px;
+            width: 100%;
+            border: 1px solid #55588a;
+            border-radius: 10px;
+        }
+        
+        .title__last__upt{
+            gap: 5px;
+            display: flex;
+            justify-content: center;
+            background-color: #1d1f38;
+            color: var(--color--five);
+            padding: 5px;
+            border-radius: 10px 10px 0px 0px;
+            
+        }
+
+        h2{
+            font-size: 20px;
+        }
+
+        i{
+            font-size: 20px;
+            color: var(--color--five);
+        }
+        
+        .value__last__upt{
+            display: flex;
+            justify-content: center;
+            padding: 7px;
+        }
+    </style>
+
+            <div class="last__update" >
+        <div class="title__last__upt">
+            <i class="bi bi-activity"></i>
+            <h2>LAST UPDATE</h2>
+        </div>
+        <div class="value__last__upt">
+            <p>${Capsule.last_update}</p>
+        </div>
+        </div>`
+
 }
