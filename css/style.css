@@ -5,20 +5,33 @@
     margin: 0;
     box-sizing: border-box;
 
-    font-family: "Roboto-Regular";
+    font-family: "Butti-Regular";
+
 }
 
 body {
-    background: linear-gradient(var(--color--one), var(--color--one--rgba));
+
+    background: url("https://w.wallha.com/ws/14/2aqlmiZ4.png");
+
+}
+
+#rocketImageCenter{
+    position: absolute;
+    top: 10%;
+    left: 37%;
+    width: 20vw;
+    
+    
 }
 
 *::-webkit-scrollbar {
     height: 12px;
     width: 10px;
+    background-color: transparent;
 }
 
 *::-webkit-scrollbar-track {
-    background-color: var(--color--five);
+    background-color: transparent;
 }
 
 *::-webkit-scrollbar-track:hover,
@@ -28,19 +41,19 @@ body {
 
 *::-webkit-scrollbar-thumb {
 
-    border: 1px solid var(--color--five);
     background-color: var(--color--one--rgba);
 }
 
 .header__title {
     /* background: red; */
-    color: var(--color--two);
+    color: var(--color--five);
     height: 10vh;
     font-size: 2.3rem;
     display: flex;
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
+    font-weight: bold;
 }
 .load{
     background: linear-gradient(120deg, #ffffff0e 30%, #ffffff23 38%, #f0f0f032 40%, #e5e5e50c 40%);
@@ -62,6 +75,7 @@ body {
     display: grid;
     grid-template-columns: 1.5fr 6fr 2fr;
     grid-template-areas: "nav__1 main nav__2";
+    
 }
 
 .nav__description {
@@ -71,11 +85,127 @@ body {
 
 .description__item {
     /* background: blue; */
-    overflow-y: auto;
     height: 75vh;
+    color: var(--color--five);
+    margin-left: 15px
+    
 }
 
-.description__buttom {
+.rocket__image{
+    display: flex;
+    justify-content: center;   
+    border-radius: 20px;
+}
+.rocket__image img{
+
+    width: 260px;
+    height: 260px;
+
+    
+}
+
+/* ID DEL COHETE */
+
+.rocket__id{
+    justify-content: center;
+    text-align: center;
+    padding-block: 10px;
+    margin: 10px;
+    font-weight: bold;
+    background-color: var(--color--one);
+    border: 1px solid var(--color--two);
+    border-radius: 10px
+}
+
+/* ETAPAS DEL COHETE */
+
+h3{
+    padding: 10px 10px 0px 10px;
+}
+
+#more__information{
+    padding: 0px 10px 0px 10px
+}
+
+.stages__container{
+
+    margin: 10px;
+    height: 190px;
+    
+}
+
+.stage__photo{
+
+    width: 60px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    border-radius: 100px;
+
+}
+
+.stage__photo img{
+    width: 75px;
+    height: 75px;
+
+}
+
+.stage_1, .stage_2{
+
+    border: 1px solid var(--color--two);
+    border-radius: 200px 0px 200px 200px;
+    margin-bottom: 10px;
+    height: 80px;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    width: 90%;
+
+
+    
+}
+
+.more_information_rocket{
+    padding: 10px 10px 0px 10px
+}
+
+.first_flight{
+
+    display: flex;
+    padding-bottom: 10px;
+    gap: 10px
+
+}
+
+.icon img{
+    width: 40px;
+    height: 40px;
+}
+.cost_launch{
+
+    display: flex;
+    gap: 10px;
+    padding-bottom: 10px
+}
+
+.status{
+
+    display: flex;
+    gap: 10px;
+}
+
+
+.each_rocket__description{
+
+    margin: 10px 20px 10px 10px
+}
+
+
+
+
+
+
+.description__buttom{
     /* background: #00ff84; */
     display: flex;
     justify-content: center;
@@ -100,9 +230,6 @@ body {
     margin-top: 25px;
     color: var(--color--two);
     text-decoration: none;
-}
-.description__container img{
-    width: 30px;
 }
 
 .main__section {
@@ -137,7 +264,7 @@ body {
 }
 /*  */
 .item__progress__bar {
-    color: var(--color--six);
+    color: var(--color--five);
     display: flex;
     justify-content: center;
     text-align: center;
@@ -147,26 +274,13 @@ body {
     border-radius: 50%;
     background: radial-gradient(
         closest-side, 
-        #4e57d3 85%, 
+        #1d1f38 85%, 
         transparent 85% 100%), 
-        conic-gradient(var(--color--four) 
+        conic-gradient(var(--color--three) 
         80%, 
         transparent 0);  
     transform: rotate(180deg); 
   }
-
-  .item__progress__bar {
-    background: 
-        radial-gradient(
-            closest-side, 
-            #525257 85%, 
-            transparent 85% 100%
-        ), 
-        conic-gradient(
-            var(--color--three) 80%, 
-            transparent 0
-        ) !important;  
-}
 .progress__value{
     display: flex;
     flex-direction: column;
@@ -227,10 +341,6 @@ body {
     width: 90%;
     border-color: var(--color--two);
 }
-
-
-
-
 .table__container__1{
     /* background: orange; */
     height: 160px;
@@ -248,7 +358,6 @@ body {
 .table__container__1 div strong{
     color: var(--color--five);
 }
-
 .section__image {
     /* background: orange; */
     grid-area: colum__2;
@@ -339,9 +448,22 @@ body {
     /* background: coral; */
     grid-area: section__footer;
     display: grid;
+    place-items: center;
     grid-template-columns: 1fr 8fr 1fr;
-
     grid-template-areas: ". footer__menu .";
+    
+    
+}
+
+.footer i{
+
+    font-size: 1.6em;
+
+}
+
+.footer i:hover{
+    color: var(--color--four);
+    
 }
 
 .footer ul {
@@ -351,12 +473,15 @@ body {
     justify-content: space-between;
     align-items: center;
     border-top-left-radius: 40px;
-    gap: 15px;
     border-top-right-radius: 40px;
-    padding-left: 50px ;
-    padding-right: 50px;
+    width: 110%;
+    position: absolute;
+    bottom: 0;
+    
+    
 }
 .footer ul::after{
+    content: "";
     position: relative;
     margin-top: 10px;
     right: -36px;
@@ -367,10 +492,8 @@ body {
     border-right: 48px solid transparent;
     border-bottom: 70px solid var(--color--one);
 }
-
-
 .footer ul::before{
-    margin-left: 20px;
+    content: "";
     position: relative;
     margin-top: 10px;
     left: -36px;
@@ -382,8 +505,6 @@ body {
     border-bottom: 70px solid  var(--color--one);
     /* border-top-right-radius: 30px; */
 }
-
-
 .footer ul li {
     list-style: none;
 }
@@ -423,7 +544,7 @@ body {
 }
 
 .buttom__paginacion a {
-    color: var(--color--two);
+    color: var(--color--five);
     text-decoration: none;
     float: left;
     padding: 8px 16px;
@@ -431,7 +552,7 @@ body {
 
 .buttom__paginacion a.activo {
     background-color: var(--color--one);
-    color: var(--color--six);
+    color: var(--color--five);
 }
 
 .buttom__paginacion a:hover:not(.activo) {
@@ -498,110 +619,29 @@ progress[value]::-moz-progress-bar {
 }
 
 
+/*  Country of the rocket */
 
+/* <div class="divCountry">
+<div class="flagCountry">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg" alt="">
+</div>
+<div class="informtionCountry">
+    <h2>Country of the rocket</h2>
+    <p>United States</p>
+</div>
 
-.table__company_1 {
+</div> */
+
+.divCountry {
     display: flex;
-    flex-direction: column;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin-top: 10px;
-    width: 300px; /* Adjust as per your design */
-}
-
-.table__company_1 div {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 5px;
-}
-
-.table__company_1 span {
-    font-weight: bold;
-}
-
-.table__company_1 hr {
-    margin: 10px 0;
-    border: none;
-    border-top: 1px solid #ccc;
-}
-
-
-
-/* CSS mejorado para la tabla de historial */
-.table__history {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 20px;
-    margin-top: 20px;
-    width: 100%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background: linear-gradient(120deg, #ffffff0e 30%, #ffffff23 38%, #f0f0f032 40%, #e5e5e50c 40%);;
-}
-
-.table__history div {
-    display: flex;
-    justify-content: space-between;
+    color: var(--color--five);
     align-items: center;
-    margin-bottom: 10px;
+    justify-content: center;
 }
 
-.table__history span {
-    font-weight: bold;
-    color: var(--color--two);
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.flagCountry img{
+
+    height: 15vh;
+    overflow: hidden;
+
 }
-
-.table__history strong {
-    color: var( --color--three);
-    font-size: 14px;
-}
-
-.table__history hr {
-    margin: 15px 0;
-    border: none;
-    border-top: 1px solid #ddd;
-}
-
-.table__history a {
-    color: var(--color--three);
-}
-
-
-
-
-
-
-
-/* Estilos para la tabla de información */
-.table__Cores {
-    position: absolute;
-    background: linear-gradient(120deg, #ffffff0e 30%, #ffffff23 38%, #f0f0f032 40%, #e5e5e50c 40%);;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 15px;
-    margin-bottom: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.table__Cores div {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
-
-.table__Cores span {
-    font-weight: bold;
-    color: var(--color--three);
-    width: 150px;
-}
-
-.table__Cores strong {
-    color: var(--color--two);
-    flex-grow: 1;
-    text-align: right;
-}
-
